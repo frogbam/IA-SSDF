@@ -610,7 +610,7 @@ class FusionModule3(nn.Module):
         shared_mlp = []
         for k in range(len(fusion_high_mlp)):
             shared_mlp.extend([
-                nn.Conv1d(out_channels, fusion_high_mlp[k], kernel_size=1, bias=False),
+                nn.Conv1d(out_channels, fusion_high_mlp[k], kernel_size=1, bias=True),
                 nn.BatchNorm1d(fusion_high_mlp[k]),
                 nn.Sigmoid()
             ])
@@ -624,7 +624,7 @@ class FusionModule3(nn.Module):
         shared_mlp = []
         for k in range(len(fusion_low_mlp)):
             shared_mlp.extend([
-                nn.Conv1d(out_channels, fusion_low_mlp[k], kernel_size=1, bias=False),
+                nn.Conv1d(out_channels, fusion_low_mlp[k], kernel_size=1, bias=True),
                 nn.BatchNorm1d(fusion_low_mlp[k]),
                 nn.Sigmoid()
             ])
@@ -638,7 +638,7 @@ class FusionModule3(nn.Module):
         shared_mlp = []
         for k in range(len(fusion_comp_mlp)):
             shared_mlp.extend([
-                nn.Conv1d(out_channels, fusion_comp_mlp[k], kernel_size=1, bias=False),
+                nn.Conv1d(out_channels, fusion_comp_mlp[k], kernel_size=1, bias=True),
                 nn.BatchNorm1d(fusion_comp_mlp[k]),
                 nn.ReLU()
             ])
